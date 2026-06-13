@@ -7,7 +7,7 @@ namespace VeinMiner
     {
         public static Item GetItemFromTile(int x, int y)
         {
-            WorldGen.KillTile_GetItemDrops(x, y, Main.tile[x, y], out int id, out int stack, out _, out _);
+            WorldGen.KillTile_GetItemDrops(x, y, Main.tile[x, y], out int id, out int stack, out _, out _, out _);
             Item item = new();
             item.SetDefaults(id);
             item.stack = stack;
@@ -20,7 +20,7 @@ namespace VeinMiner
         public static int GetBlankSlot(this TSPlayer tsp)
         {
             int num = 0;
-            tsp.TPlayer.inventory.ForEach(s => { if (s.netID == 0) num++; });
+            tsp.TPlayer.inventory.ForEach(s => { if (s.type == 0) num++; });
             return num;
         }
 
@@ -35,8 +35,8 @@ namespace VeinMiner
                 s = tsp.TPlayer.inventory[i];
                 if (available < stack)
                 {
-                    if (s.netID == id) available += (s.maxStack - s.stack);
-                    else if (s.netID == 0) available += item.maxStack;
+                    if (s.type == id) available += (s.maxStack - s.stack);
+                    else if (s.type == 0) available += item.maxStack;
                 }
                 else
                 {

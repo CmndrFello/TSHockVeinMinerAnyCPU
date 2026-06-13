@@ -109,9 +109,9 @@ namespace VeinMiner
             {
                 if (Config.PutInInventory)
                 {
-                    if (plr.IsSpaceEnough(item.netID, count))
+                    if (plr.IsSpaceEnough(item.type, count))
                     {
-                        plr.GiveItem(item.netID, count);
+                        plr.GiveItem(item.type, count);
                         KillTileAndSend(list, true);
                     }
                     else

@@ -10,6 +10,7 @@
 	</ItemGroup>
 	<ItemGroup>
 	  <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+	  <PackageReference Include="TShock" Version="6.1.0" />
 	</ItemGroup>
 	<ItemGroup>
 	  <Reference Include="ModFramework">
